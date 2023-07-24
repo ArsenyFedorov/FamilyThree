@@ -1,7 +1,8 @@
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
-public class FamilyThree {
+public class FamilyThree implements Serializable {
     List<Human> humans;
     public FamilyThree(){
         humans = new ArrayList<>();

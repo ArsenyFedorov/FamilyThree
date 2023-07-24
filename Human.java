@@ -58,12 +58,13 @@ public class Human implements Serializable {
             return "У этого человека есть супруга:\n" + this.spouse.get(0).toString();
         }
     }
-    public void childrenHuman(){
-        if(children.size() == 0){
+
+    public void childrenHuman() {
+        if (children.size() == 0) {
             System.out.println("У этого человека нет детей");
-        }else{
+        } else {
             System.out.println("Дети " + this.name + ":");
-            for(Human childern : children){
+            for (Human childern : children) {
                 System.out.println(childern.toString());
             }
         }
@@ -74,16 +75,21 @@ public class Human implements Serializable {
         return "Name: " + name + ", Birth: " + birth + ", Death:" + death + ", Gender:" + gender;
     }
 
+    public String humanName() {
+        return name;
+    }
+    public LocalDate ageHuman() {
+        return birth;
+    }
+
     public void addSpouse(Human spouse) {
         if (gender == spouse.gender) {
             System.out.println("Я против гейства !!!");
-        }
-        else if(parents.contains(spouse) || children.contains(spouse)){
+        } else if (parents.contains(spouse) || children.contains(spouse)) {
             System.out.println("Ты по моему перепутал");
-        }else if (this.spouse.size() == 0) {
+        } else if (this.spouse.size() == 0) {
             this.spouse.add(spouse);
-        }
-        else {
+        } else {
             System.out.println("Горем это не плохо но не в нашей стране )");
         }
     }
@@ -91,10 +97,9 @@ public class Human implements Serializable {
     public void addParents(Human mom, Human dad) {
         if (parents.size() != 0) {
             System.out.println("У этого человека уже есть родители");
-        }else if(children.contains(mom) || children.contains(dad) || spouse.contains(mom) || spouse.contains(dad)){
+        } else if (children.contains(mom) || children.contains(dad) || spouse.contains(mom) || spouse.contains(dad)) {
             System.out.println("Ты по моему перепутал");
-        }
-        else {
+        } else {
             parents.add(mom);
             parents.add(dad);
         }
@@ -106,10 +111,9 @@ public class Human implements Serializable {
                     "у меня есть поле жена или муж");
         } else if (this.children.contains(children)) {
             System.out.println("Два одинаковых ребёнка ? Это бред");
-        }else if(this.spouse.contains(children) || this.parents.contains(children)){
+        } else if (this.spouse.contains(children) || this.parents.contains(children)) {
             System.out.println("Ты по моему перепутал");
-        }
-        else {
+        } else {
             this.children.add(children);
             this.spouse.get(0).children.add(children);
         }

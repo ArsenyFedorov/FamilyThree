@@ -1,19 +1,17 @@
-import java.awt.*;
 import java.io.Serializable;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Human implements Serializable {
+public class Essence implements Serializable {
     private String name;
     private LocalDate birth;
     private LocalDate death;
     private Gender gender;
-    private List<Human> parents;
-    private List<Human> children;
-    private List<Human> spouse;
-
-    public Human(String name, LocalDate birth, LocalDate death, Gender gender, Human mather, Human father) {
+    private List<Essence> parents;
+    private List<Essence> children;
+    private List<Essence> spouse;
+    public Essence(String name, LocalDate birth, LocalDate death, Gender gender, Essence mather, Essence father) {
         this.parents = new ArrayList<>();
         this.children = new ArrayList<>();
         this.spouse = new ArrayList<>();
@@ -29,19 +27,19 @@ public class Human implements Serializable {
         }
     }
 
-    public Human(String name, LocalDate birth, Gender gender, Human mather, Human father) {
+    public Essence(String name, LocalDate birth, Gender gender, Essence mather, Essence father) {
         this(name, birth, null, gender, mather, father);
     }
 
-    public Human(String name, LocalDate birth, LocalDate death, Gender gender) {
+    public Essence(String name, LocalDate birth, LocalDate death, Gender gender) {
         this(name, birth, death, gender, null, null);
     }
 
-    public Human(String name, LocalDate birth, Gender gender) {
+    public Essence(String name, LocalDate birth, Gender gender) {
         this(name, birth, null, gender, null, null);
     }
 
-    public String parentsHuman() {
+    public String parentsEssence() {
         if (parents.size() != 0) {
             return "Родители " + name + ":\n" + parents.get(0).toString() + "\n" + parents.get(1).toString();
         } else {
@@ -49,21 +47,22 @@ public class Human implements Serializable {
         }
     }
 
-    public String spouseHuman() {
+    public String spouseEssence() {
         if (this.spouse.size() == 0) {
-            return "У этого человека нет пары (";
+            return "У этой сущности нет пары (";
         } else if (this.spouse.get(0).gender == Gender.Man) {
-            return "У этого человека есть супруг:\n" + this.spouse.get(0).toString();
+            return "У этой сущности есть супруг:\n" + this.spouse.get(0).toString();
         } else {
-            return "У этого человека есть супруга:\n" + this.spouse.get(0).toString();
+            return "У этой сущности есть супруга:\n" + this.spouse.get(0).toString();
         }
     }
-    public void childrenHuman(){
-        if(children.size() == 0){
-            System.out.println("У этого человека нет детей");
-        }else{
+
+    public void childrenEssence() {
+        if (children.size() == 0) {
+            System.out.println("У этой сущности нет детей");
+        } else {
             System.out.println("Дети " + this.name + ":");
-            for(Human childern : children){
+            for (Essence childern : children) {
                 System.out.println(childern.toString());
             }
         }
@@ -74,44 +73,49 @@ public class Human implements Serializable {
         return "Name: " + name + ", Birth: " + birth + ", Death:" + death + ", Gender:" + gender;
     }
 
-    public void addSpouse(Human spouse) {
+    public String essenceName() {
+        return name;
+    }
+
+    public LocalDate ageEssence() {
+        return birth;
+    }
+
+    public void addSpouse(Essence spouse) {
         if (gender == spouse.gender) {
             System.out.println("Я против гейства !!!");
-        }
-        else if(parents.contains(spouse) || children.contains(spouse)){
+        } else if (parents.contains(spouse) || children.contains(spouse)) {
             System.out.println("Ты по моему перепутал");
-        }else if (this.spouse.size() == 0) {
+        } else if (this.spouse.size() == 0) {
             this.spouse.add(spouse);
-        }
-        else {
+        } else {
             System.out.println("Горем это не плохо но не в нашей стране )");
         }
     }
 
-    public void addParents(Human mom, Human dad) {
+    public void addParents(Essence mom, Essence dad) {
         if (parents.size() != 0) {
-            System.out.println("У этого человека уже есть родители");
-        }else if(children.contains(mom) || children.contains(dad) || spouse.contains(mom) || spouse.contains(dad)){
+            System.out.println("У этой сущности уже есть родители");
+        } else if (children.contains(mom) || children.contains(dad) || spouse.contains(mom) || spouse.contains(dad)) {
             System.out.println("Ты по моему перепутал");
-        }
-        else {
+        } else {
             parents.add(mom);
             parents.add(dad);
         }
     }
 
-    public void addChildren(Human children) {
+    public void addChildren(Essence children) {
         if (spouse.size() == 0) {
             System.out.println("Я понимаю что ребёнок может быть из детского дома, но это глупо реализовывать если" +
                     "у меня есть поле жена или муж");
         } else if (this.children.contains(children)) {
             System.out.println("Два одинаковых ребёнка ? Это бред");
-        }else if(this.spouse.contains(children) || this.parents.contains(children)){
+        } else if (this.spouse.contains(children) || this.parents.contains(children)) {
             System.out.println("Ты по моему перепутал");
-        }
-        else {
+        } else {
             this.children.add(children);
             this.spouse.get(0).children.add(children);
         }
     }
+
 }

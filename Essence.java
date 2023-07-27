@@ -11,6 +11,7 @@ public class Essence implements Serializable {
     private List<Essence> parents;
     private List<Essence> children;
     private List<Essence> spouse;
+
     public Essence(String name, LocalDate birth, LocalDate death, Gender gender, Essence mather, Essence father) {
         this.parents = new ArrayList<>();
         this.children = new ArrayList<>();

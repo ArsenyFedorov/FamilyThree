@@ -1,22 +1,21 @@
-import java.security.spec.ECField;
 import java.util.Iterator;
 import java.util.List;
 
-public class HumanIterator<E extends Essence> implements Iterator<Essence> {
+public class HumanIterator implements Iterator<Human> {
     private int index;
-    private List<E> essence;
+    private List<Human> humans;
 
-    public HumanIterator(List<E> essence) {
-        this.essence = essence;
+    public HumanIterator(List<Human> humans) {
+        this.humans = humans;
     }
 
     @Override
     public boolean hasNext() {
-        return essence.size() > index;
+        return humans.size() > index;
     }
 
     @Override
-    public Essence next() {
-        return essence.get(index++);
+    public Human next() {
+        return humans.get(index++);
     }
 }

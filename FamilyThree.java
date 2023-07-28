@@ -5,7 +5,7 @@ import java.util.Collections;
 import java.util.Iterator;
 import java.util.List;
 
-public class FamilyThree<E extends Essence> implements Serializable, Iterable<Essence> {
+public class FamilyThree<E extends Essence> implements Serializable, Iterable<E> {
     List<E> essence;
 
     public FamilyThree() {
@@ -29,8 +29,8 @@ public class FamilyThree<E extends Essence> implements Serializable, Iterable<Es
     }
 
     @Override
-    public Iterator<Essence> iterator() {
-        return new HumanIterator(this.essence);
+    public Iterator<E> iterator() {
+        return new EssenceIterator(this.essence);
     }
 
     public void nameSorted() {

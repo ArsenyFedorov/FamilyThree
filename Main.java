@@ -9,9 +9,9 @@ public class Main {
         Human me = new Human("Arseny", LocalDate.of(2007, 10, 26), Gender.Man);
         me.addParents(mather, father);
         FamilyThree my_family = new FamilyThree();
-        my_family.addHuman(mather);
-        my_family.addHuman(father);
-        my_family.addHuman(me);
+        my_family.addEssence(mather);
+        my_family.addEssence(father);
+        my_family.addEssence(me);
         my_family.toString();
         System.out.println();
         my_family.ageSorted();
@@ -19,5 +19,9 @@ public class Main {
         System.out.println();
         my_family.nameSorted();
         my_family.toString();
+        Model model = new Model(my_family);
+        View view = new View();
+        Presenter presenter = new Presenter(view, model);
+        presenter.start();
     }
 }

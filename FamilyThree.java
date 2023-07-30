@@ -6,7 +6,7 @@ import java.util.Iterator;
 import java.util.List;
 
 public class FamilyThree<E extends Essence> implements Serializable, Iterable<E> {
-    List<E> essence;
+    public List<E> essence;
 
     public FamilyThree() {
         essence = new ArrayList<>();

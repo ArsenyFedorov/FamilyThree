@@ -2,7 +2,7 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Human implements Essence {
+public class Human implements Essence, AddEssence<Human> {
     private String name;
     private LocalDate birth;
     private LocalDate death;
@@ -117,4 +117,5 @@ public class Human implements Essence {
             this.spouse.get(0).children.add(children);
         }
     }
+
 }

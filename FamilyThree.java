@@ -5,7 +5,7 @@ import java.util.Collections;
 import java.util.Iterator;
 import java.util.List;
 
-public class FamilyThree<E extends Essence> implements Serializable, Iterable<E> {
+public class FamilyThree<E extends Essence> implements Serializable, Iterable<E>, SortedFamily {
     public List<E> essence;
 
     public FamilyThree() {
@@ -35,7 +35,7 @@ public class FamilyThree<E extends Essence> implements Serializable, Iterable<E>
 
     public void nameSorted() {
         List<String> name_list = new ArrayList<>();
-        for (E e: this.essence) {
+        for (E e : this.essence) {
             name_list.add(e.essenceName());
         }
         List<E> new_essence = new ArrayList<>();

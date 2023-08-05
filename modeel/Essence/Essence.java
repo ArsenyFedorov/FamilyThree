@@ -1,3 +1,5 @@
+package modeel.Essence;
+
 import java.time.LocalDate;
 
 public interface Essence {

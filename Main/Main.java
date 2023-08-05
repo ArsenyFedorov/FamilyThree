@@ -1,5 +1,10 @@
+package Main;
+
+import modeel.Essence.Gender;
+import modeel.Essence.Human;
+import modeel.FamilyTree.FamilyThree;
+
 import java.time.LocalDate;
-import java.util.Iterator;
 
 public class Main {
     public static void main(String[] args) {

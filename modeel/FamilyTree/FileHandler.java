@@ -1,3 +1,5 @@
+package modeel.FamilyTree;
+
 import java.io.*;
 
 public class FileHandler implements Writable {

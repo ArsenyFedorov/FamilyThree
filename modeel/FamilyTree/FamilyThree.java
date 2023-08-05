@@ -1,3 +1,8 @@
+package modeel.FamilyTree;
+
+import modeel.Essence.Essence;
+import modeel.Essence.EssenceIterator;
+
 import java.io.Serializable;
 import java.time.LocalDate;
 import java.util.ArrayList;

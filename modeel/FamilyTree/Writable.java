@@ -1,3 +1,5 @@
+package modeel.FamilyTree;
+
 import java.io.Serializable;
 
 public interface Writable {

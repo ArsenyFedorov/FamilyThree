@@ -1,3 +1,5 @@
+package modeel.FamilyTree;
+
 public interface SortedFamily {
     void nameSorted();
 

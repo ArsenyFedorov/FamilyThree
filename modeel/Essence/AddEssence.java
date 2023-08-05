@@ -1,3 +1,5 @@
+package modeel.Essence;
+
 public interface AddEssence<T> {
     public void addSpouse(T spouse);
 
